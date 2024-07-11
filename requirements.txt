@@ -1,0 +1,9 @@
+numpy
+Pillow
+tensorflow
+keras
+matplotlib
+importlib-metadata
+fastapi
+pydantic
+uvicorn

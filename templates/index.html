@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallelism and Big Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            text-align: center;
+        }
+        .box {
+            width: 200px;
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            display: inline-block;
+        }
+        .box:hover {
+            background-color: #e0e0e0;
+        }
+        form {
+            display: none;
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        select, input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        input[type="submit"], button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #0056b3;
+        }
+        #backButton {
+            background-color: #6c757d;
+        }
+        #backButton:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+<div id="selection" class="container">
+    <h1>Select an Option</h1>
+    <div class="box" onclick="showForm('parallelismForm')">Parallelism</div>
+    <div class="box" onclick="showForm('bigDataForm')">Big Data</div>
+</div>
+
+<form id="parallelismForm" action="/submit-form/" method="post" class="container">
+    <h1>Parallelism</h1>
+    <label for="part">Which part?</label>
+    <select id="part" name="part">
+        <option value="TBP">Thread-Based Parallelism</option>
+        <option value="PBP">Process-Based Parallelism</option>
+    </select><br><br>
+
+    <label for="sections">Which sections?</label>
+    <select id="sections" name="sections">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+    </select><br><br>
+
+    <label for="scenario">Which network?</label>
+    <select id="scenario" name="scenario">
+        <option value="scenario_1">1</option>
+        <option value="scenario_2">2</option>
+        <option value="scenario_3">3</option>
+    </select><br><br>
+
+    <div class="buttons">
+        <button type="button" id="backButton" onclick="showSelection()">Back</button>
+        <input type="submit" value="Submit">
+    </div>
+</form>
+
+<form id="bigDataForm" action="/upload-file/" method="post" enctype="multipart/form-data" class="container">
+    <h1>Big Data</h1>
+
+    <label for="network">Which scenario?</label>
+    <select id="network" name="network">
+        <option value="1">FCN</option>
+        <option value="2">CNN</option>
+    </select><br><br>
+    <label for="fileUpload">Choose file:</label>
+    <input type="file" id="fileUpload" name="file" required><br><br>
+
+    <div class="buttons">
+        <button type="button" id="backButton" onclick="showSelection()">Back</button>
+        <button type="submit">Upload</button>
+    </div>
+</form>
+
+<script>
+    function showForm(formId) {
+        document.getElementById('selection').style.display = 'none';
+        document.getElementById(formId).style.display = 'block';
+    }
+
+    function showSelection() {
+        document.getElementById('selection').style.display = 'block';
+        document.getElementById('parallelismForm').style.display = 'none';
+        document.getElementById('bigDataForm').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
+
+

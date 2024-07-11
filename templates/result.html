@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <h1>Here is output of {{ item.scenario }} from section: {{ item.sections }} from part {{ item.part }}</h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Data</title>
+</head>
+<body>
+    <h1>Data Items</h1>
+    <ul>
+        {% for item in data %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
