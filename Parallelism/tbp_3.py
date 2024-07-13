@@ -64,7 +64,7 @@ def scenario_3():
     for thread_name in thread_names:
         threads.append(my_thread_class(thread_name, randint(1, 10)))
         threads[-1].start()
-        if thread_names.index(thread_name) == 3:
+        if thread_names.index(thread_name) == 4:
             for thread in threads:
                 thread.join()
                 threads.remove(thread)

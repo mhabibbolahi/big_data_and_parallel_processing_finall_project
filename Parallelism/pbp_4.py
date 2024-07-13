@@ -4,9 +4,9 @@ from datetime import datetime
 
 
 def foo(result):
-    result.put('Starting function' + str(datetime.fromtimestamp(time.time())))
+    result.put(f'Starting function' + str(datetime.fromtimestamp(time.time())))
     for i in range(0, 10):
-        result.put('-->%d\n' % i + str(datetime.fromtimestamp(time.time())))
+        result.put(f'-->{i}' + str(datetime.fromtimestamp(time.time())))
         time.sleep(1)
         result.put('Finished function' + str(datetime.fromtimestamp(time.time())))
 
@@ -17,7 +17,7 @@ def scenario_1():
     result.put('Process before execution:' + str(p) + str(p.is_alive()) + str(datetime.fromtimestamp(time.time())))
     p.start()
     result.put('Process running:' + str(p) + str(p.is_alive()) + str(datetime.fromtimestamp(time.time())))
-    p.terminate()
+    p.rminate()
     time.sleep(1)
     result.put('Process terminated:' + str(p) + str(p.is_alive()) + str(datetime.fromtimestamp(time.time())))
     p.join()

@@ -31,6 +31,9 @@ def scenario_1():
     threads.append(threading.Thread(name=thread_names[0], target=function_a, args=(random.randint(0, 10),)))
     threads.append(threading.Thread(name=thread_names[1], target=function_b, args=(random.randint(0, 10),)))
     threads.append(threading.Thread(name=thread_names[2], target=function_c, args=(random.randint(0, 10),)))
+
+    for thread in threads:
+        thread.start()
     for thread in threads:
         thread.join()
     return result

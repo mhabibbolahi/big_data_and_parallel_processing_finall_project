@@ -30,19 +30,35 @@ def producer():
 def scenario_1():
     global result
     result = []
+    t1 = []
+    t2 = []
     for i in range(10):
-        threading.Thread(target=consumer).start()
-        threading.Thread(target=producer).start()
+        t1.append(threading.Thread(target=consumer))
+        t2.append(threading.Thread(target=producer))
+        t1[-1].start()
+        t2[-1].start()
+    for i in range(10):
+        t1[i].join()
+        t2[i].join()
     return result
 
 
 def scenario_2():
     global result
     result = []
+    t1 = []
+    t2 = []
     for i in range(10):
-        threading.Thread(target=producer).start()
+        t2.append(threading.Thread(target=producer))
+        t2[-1].start()
+
     for i in range(10):
-        threading.Thread(target=consumer).start()
+        t1.append(threading.Thread(target=consumer))
+        t1[-1].start()
+    for i in range(10):
+        t1[i].join()
+        t2[i].join()
+
     return result
 
 

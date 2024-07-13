@@ -7,16 +7,16 @@ def myFunc(Result):
 
     name = multiprocessing.current_process().name
 
-    Result.put("Starting process name = %s " % name + str(datetime.fromtimestamp(time.time())))
+    Result.put(f"Starting process name = {name} " + str(datetime.fromtimestamp(time.time())))
     time.sleep(3)
-    Result.put("Exiting process name = %s " % name+ str(datetime.fromtimestamp(time.time())))
+    Result.put(f"Exiting process name = {name}"+ str(datetime.fromtimestamp(time.time())))
 
 
 def myFunc2(Result):
 
     name = multiprocessing.current_process().name
-    Result.put("Starting process name = %s " % name+ str(datetime.fromtimestamp(time.time())))
-    Result.put("Exiting process name = %s " % name+ str(datetime.fromtimestamp(time.time())))
+    Result.put(f"Starting process name = {name}"+ str(datetime.fromtimestamp(time.time())))
+    Result.put(f"Exiting process name = {name}"+ str(datetime.fromtimestamp(time.time())))
 
 
 

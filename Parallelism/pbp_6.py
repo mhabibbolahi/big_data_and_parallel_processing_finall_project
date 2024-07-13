@@ -81,7 +81,7 @@ def scenario_1():
         process_consumer.start()
         process_producer.join()
         process_consumer.join()
-        return [result.get() for _ in range(result.qsize())]
+    return [result.get() for _ in range(result.qsize())]
 
 
 def scenario_2():
