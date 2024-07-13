@@ -1,0 +1,7 @@
+numpy==1.24.3
+Pillow==9.5.0
+keras==2.13.1
+matplotlib==3.7.0
+importlib-metadata==6.6.0
+pydantic==2.8.2
+uvicorn==0.30.1
